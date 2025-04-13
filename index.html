@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Quality Index Application</title>
+    <style>
+        .form-group {
+            margin: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin: 15px;
+        }
+        .checkbox-group input {
+            width: auto;
+            margin-right: 10px;
+        }
+        button {
+            background-color: rgb(56, 91, 126);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: rgb(77, 77, 146);
+        }
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body style="text-align: center;">
+    <h1 style="color:rgb(77, 77, 146);">Air Quality Index Application</h1>
+   
+    <div style="display: flex; justify-content: center; margin-top: 20px;">
+        <div style="width: 400px; height: 600px; border: 1px solid black; display: flex; flex-direction: column;">
+            <div style="height: 300px; border-bottom: 1px solid black;"></div>
+            <div style="height: 300px;"></div>
+        </div>
+       
+        <div style="width: 400px; height: 600px; border: 1px solid black; display: flex; flex-direction: column;">
+            <div style="height: 50px; border-bottom: 1px solid black;">
+                <h2 style="color:rgb(56, 91, 126);">Registration Box</h2>
+            </div>
+           
+            <div style="height: 400px; border-bottom: 1px solid black; overflow-y: auto;">
+                <form style="padding: 10px;">
+                    <div class="form-group">
+                        <label for="fullname">Full Name:</label>
+                        <input type="text" id="fullname" name="fullname" required>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="email">Email (must be @aiub.edu):</label>
+                        <input type="email" 
+                               id="email" 
+                               name="email" 
+                               required 
+                               pattern="^[^@\s]+@aiub\.edu$" 
+                               title="Email must end with @aiub.edu">
+                        <div class="error-message" id="emailError"></div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="password">Password (8+ chars, uppercase, lowercase, number, special char):</label>
+                        <input type="password" 
+                               id="password" 
+                               name="password" 
+                               required 
+                               pattern="Abc1234@" 
+                               title="Must be 8+ characters with uppercase, lowercase, number, and special character">
+                        <div class="error-message" id="passwordError"></div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password:</label>
+                        <input type="password" 
+                               id="confirm-password" 
+                               name="confirm-password" 
+                               required 
+                               oninput="this.setCustomValidity(this.value != this.dataset.password ? 'Passwords do not match.' : '')"
+                               data-password="">
+                        <div class="error-message" id="confirmPasswordError"></div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="Location">Location :</label>
+                        <select id="Country" name="Country" required>
+                            <option value="">Select country</option>
+                            <option value="Bangladesh">Bangladesh </option>
+                        </select>
+                        <div class="error-message" id="locationError"></div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="preferred-city">Preferred City:</label>
+                        <select id="preferred-city" name="preferred-city" required>
+                            <option value="">Select a city</option>
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Chittagong">Chittagong</option>
+                            <option value="Rangpur">Rangpur</option>
+                            <option value="Sylhet">Sylhet</option>
+                            <option value="Rajshahi">Rajshahi</option>
+                        </select>
+                    </div>
+                   
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the Terms & Conditions</label>
+                    </div>
+
+                    <div style="height: 150px; display: flex; justify-content: center; align-items: center;">
+                        <button type="submit">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
